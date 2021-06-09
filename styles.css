@@ -1,0 +1,63 @@
+*, *::before, *::after{
+    /* selecting all elements and before and after elements */
+    box-sizing: border-box;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif ;
+    /* the fonts after the , are the default fonts incase the previous one is not available on our system */
+    font-weight: normal;
+}
+body{
+    margin: 0;
+    padding: 0;
+    background:linear-gradient(to right, #00AAFF, #00FF6C);
+
+}
+
+.calculator-grid{
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    min-height: 100vh;
+    /* min-height = going to cover 100% of the height all the time */
+    grid-template-columns: repeat(4,100px);
+    grid-template-rows: minmax(120px,auto)repeat(5,100px);
+    /* minmax-->at minimum we want it to be 120px tall but at maximum it can take the height it needs(auto) */
+}
+
+.calculator-grid > button{
+    cursor:pointer;
+    font-size: 2rem;
+    border:1px solid white;
+    outline:none;
+    background-color: rgba(255,255,255,65%);
+ 
+}
+
+.calculator-grid > button:hover{
+    background-color: rgba(255,255,255,90%);
+}
+
+.span-two{
+    grid-column: span 2;
+}
+
+.output{
+    grid-column: 1/-1;
+    /* from first column to last column */
+    background-color: rgba(0,0,0,85%);
+    display:flex;
+    align-items: flex-end;
+    justify-content: space-around;
+    /* this will ensure that there is as much space as possible between the two rows and the edges of the container */
+    flex-direction: column;
+    padding: 10px;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+.output .previous-operand{
+    color: rgba(255,255,255,.55);
+    font-size: 1.5rem;
+}
+.output .current-operand{
+    color: white;
+    font-size: 2.5rem;
+}
